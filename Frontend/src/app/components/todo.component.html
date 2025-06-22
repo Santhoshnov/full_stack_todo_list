@@ -1,0 +1,14 @@
+<h2>Todo App</h2>
+
+<form (ngSubmit)="addTodo()">
+    <input type = "text" [(ngModel)]="newTodo.name" name="name"placeholder="name" required />
+    <button type="submit">Add</button>
+</form>
+
+<ul>
+    <li *ngFor="let todo of todos">
+        <input type="checkbox" [(ngModel)]="todo.isComplete" (change)="updateTodo(todo)" />
+        <input type="text" [(ngModel)]="todo.name" (blur)="updateTodo(todo)" [style.textDecoration]="todo.isComplete ? 'line-through' : 'none'"/>
+        <button (click)="deleteTodo(todo.id!)">Delete</button>
+    </li>
+</ul>

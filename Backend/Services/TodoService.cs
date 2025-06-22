@@ -18,6 +18,7 @@ namespace Backend.Services
             return _todoRepository.GetTodoList()
                 .Select(t => new TodoDto
                 {
+                    Id = t.Id,
                     Name = t.Name!,
                     IsComplete = t.IsComplete
                 }).ToList();
