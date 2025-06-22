@@ -34,14 +34,14 @@ namespace Backend.Controllers
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
             _todoService.UpdateTodo(id, todoDto);
-            return NoContent();
+            return Ok(new { success = true, message = "Todo updated successfully." });
         }
 
         [HttpDelete("{id}")]
         public IActionResult DeleteTodo(Guid id)
         {
             _todoService.DeleteTodo(id);
-            return NoContent();
+           return Ok(new { success = true, message = "Todo deleted successfully." });
         }
     }
 }
